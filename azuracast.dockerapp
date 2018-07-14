@@ -4,8 +4,8 @@ name: AzuraCast
 description: A turnkey, all-in-one web radio solution, including broadcast software and a powerful web management interface.
 namespace: azuracast
 maintainers:
-  - name: Buster "Silver Eagle" Neece
-    email: buster@busterneece.com
+  - name: "Buster 'Silver Eagle' Neece"
+    email: "buster@busterneece.com"
 targets:
   swarm: false
   kubernetes: false
