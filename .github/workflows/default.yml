@@ -111,7 +111,7 @@ jobs :
       - name : Set up functional test environment.
         run : |
           cp sample.env .env
-          cp azuracast.sample.env azuracast.env
+          cp azuracast.testing.env azuracast.env
           cp docker-compose.sample.yml docker-compose.yml
           docker-compose pull web
 

@@ -1,0 +1,26 @@
+image :
+  file : .gitpod.Dockerfile
+
+tasks :
+  - init : |
+      cp docker-compose.sample.yml docker-compose.yml
+      cp azuracast.dev.env azuracast.env
+      docker-compose pull
+      docker-compose build web
+      docker-compose run --rm --user=azuracast web azuracast_install
+
+  - name : Spin-up Docker Compose
+    command : |
+      docker-compose up -d
+
+  - name : Web Container
+    openIn : bottom
+    command : docker-compose run --rm --user=azuracast web bash
+
+  - name : Static Container
+    openMode : split-bottom
+    command : cd frontend && docker-compose run --rm frontend bash
+
+ports :
+  - port : 80
+  - port : 443
