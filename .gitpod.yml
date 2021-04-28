@@ -4,9 +4,9 @@ image :
 tasks :
   - init : |
       cp docker-compose.sample.yml docker-compose.yml
+      cp docker-compose.testing.yml docker-compose.yml
       cp azuracast.dev.env azuracast.env
       docker-compose pull
-      docker-compose build web
       docker-compose run --rm --user=azuracast web azuracast_install
 
   - name : Spin-up Docker Compose
@@ -19,7 +19,7 @@ tasks :
 
   - name : Static Container
     openMode : split-bottom
-    command : cd frontend && docker-compose run --rm frontend bash
+    command : docker-compose run -f frontend/docker-compose.yml --rm frontend bash
 
 ports :
   - port : 80
